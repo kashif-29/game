@@ -1,0 +1,38 @@
+import random
+list =["snake", "water", "gun"]
+chance=5
+human_point=0
+computer_point=0
+no_of_chance=0
+while(no_of_chance<chance):
+    print("Enter your choice \n, snake or  water or gun \n")
+    user=input()
+    choice = random.choice(list)
+    if user == choice:
+        print("tie")
+        continue
+    if user == "snake" and choice=="water":
+        human_point = human_point + 1
+        print(f"")
+    elif user =="snake" and choice =="gun":
+        computer_point = computer_point +1
+    elif user =="gun" and choice =="snake":
+        human_point = human_point + 1
+    elif user =="gun" and choice =="water":
+        computer_point = computer_point +1
+    elif user =="water" and choice =="snake":
+        computer_point = computer_point +1
+    elif user =="water" and choice =="gun":
+        human_point = human_point + 1
+    else:
+        if chance==3:
+            break
+        else:
+            print("enter correct input")
+    no_of_chance= no_of_chance+1
+    print(f"{chance-no_of_chance} is left out of {chance}")
+print(f"\n computer points={computer_point} \n your points={human_point}")
+if human_point > computer_point:
+    print("you are winner")
+else:
+    print("you are loser")
